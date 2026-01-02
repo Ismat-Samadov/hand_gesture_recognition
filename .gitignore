@@ -17,3 +17,5 @@ __pycache__/
 
 # OS
 .DS_Store
+
+artifacts/best_model.keras
