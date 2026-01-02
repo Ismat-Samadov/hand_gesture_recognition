@@ -5,8 +5,8 @@ venv
 # Large model files (>100MB)
 artifacts/saved_model/
 artifacts/final_model.keras
+artifacts/best_model.keras
 artifacts/*.h5
-
 # Python
 __pycache__/
 *.py[cod]
@@ -18,4 +18,3 @@ __pycache__/
 # OS
 .DS_Store
 
-artifacts/best_model.keras
