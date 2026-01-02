@@ -2,31 +2,18 @@
 dataset
 venv
 
-# Generated files and artifacts (don't commit large model files)
-artifacts/
-charts/
-outputs/
+# Large model files (>100MB)
+artifacts/saved_model/
+artifacts/final_model.keras
+artifacts/*.h5
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-*.egg-info/
-dist/
-build/
 
 # Jupyter Notebook
 .ipynb_checkpoints/
-*.ipynb_checkpoints
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
 
 # OS
 .DS_Store
-Thumbs.db
