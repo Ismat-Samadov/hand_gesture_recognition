@@ -1,0 +1,38 @@
+{
+    "missing_values": {
+        "image_path": 0,
+        "subject_id": 0,
+        "gesture_code": 0,
+        "gesture_name": 0,
+        "filename": 0
+    },
+    "class_distribution": {
+        "Palm": 2000,
+        "L": 2000,
+        "Fist": 2000,
+        "Fist Moved": 2000,
+        "Thumb": 2000,
+        "Index": 2000,
+        "OK": 2000,
+        "Palm Moved": 2000,
+        "C": 2000,
+        "Down": 2000
+    },
+    "subject_distribution": {
+        "00": 2000,
+        "01": 2000,
+        "02": 2000,
+        "03": 2000,
+        "04": 2000,
+        "05": 2000,
+        "06": 2000,
+        "07": 2000,
+        "08": 2000,
+        "09": 2000
+    },
+    "missing_files_count": 0,
+    "missing_files": [],
+    "duplicate_entries": 0,
+    "is_balanced": true,
+    "class_imbalance_ratio": 1.0
+}
