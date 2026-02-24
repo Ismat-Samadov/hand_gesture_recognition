@@ -297,4 +297,4 @@ The hand gesture recognition system demonstrates **exceptional performance** sui
 ---
 
 *This analysis was generated on January 3, 2026*
-*For technical implementation details, please refer to the accompanying Jupyter notebook*
+*For technical implementation details, please refer to `scripts/hand_gesture_recognition.py`*
