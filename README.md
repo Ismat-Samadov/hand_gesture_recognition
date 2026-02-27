@@ -1,8 +1,8 @@
 # Georgia Used-Car Market — Business Insight Report
 
-> **Data source:** ap.ge (Autopapa) — Georgia's primary automotive marketplace
-> **Dataset:** 11,820 active listings across 1,196 search pages
-> **Currency:** Georgian Lari (GEL)
+-> **Data source:** ap.ge (Autopapa) — Georgia's primary automotive marketplace
+-> **Dataset:** 11,820 active listings across 1,196 search pages
+-> **Currency:** Georgian Lari (GEL)
 
 ---
 
