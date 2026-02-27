@@ -1,300 +1,202 @@
-# Hand Gesture Recognition System
-## Performance Analysis & Business Insights
+# Georgia Used-Car Market — Business Insight Report
+
+> **Data source:** ap.ge (Autopapa) — Georgia's primary automotive marketplace
+> **Dataset:** 11,820 active listings across 1,196 search pages
+> **Currency:** Georgian Lari (GEL)
 
 ---
 
 ## Executive Summary
 
-This document presents the results of a machine learning system designed to recognize hand gestures from infrared camera images. The system achieved **99.97% accuracy** in identifying 10 different hand gestures, demonstrating production-ready performance suitable for real-world deployment.
-
-**Key Findings:**
-- The model correctly identifies gestures in 2,999 out of 3,000 test cases
-- 9 out of 10 gesture types achieve perfect 100% recognition accuracy
-- The system is ready for deployment in human-computer interaction applications
-- Training required only 16 iterations, demonstrating efficient learning
+The Georgian used-car market is heavily concentrated — two brands account for nearly
+70 % of all supply, one city holds 64 % of all inventory, and almost every listed
+vehicle carries an outstanding customs obligation. These structural patterns create
+clear opportunities for buyers, dealers, and investors who understand where the
+volume is, how prices behave across age and mileage, and where supply gaps exist.
 
 ---
 
-## 1. Business Context & Opportunity
+## 1. Brand Landscape — Who Dominates Supply
 
-### What Problem Does This Solve?
+![Brand Volume](charts/01_brand_volume.png)
 
-Hand gesture recognition enables touchless interaction with digital devices, creating opportunities in:
+**BMW and Toyota together represent 68 % of all listings** (≈ 8,000 of 11,820).
+No other brand comes close: Kia ranks third at roughly 12 %, and the remaining
+brands each hold single-digit shares.
 
-- **Healthcare**: Sterile environments where touchless control is critical
-- **Smart Homes**: Intuitive device control without physical contact
-- **Automotive**: Safer in-vehicle controls that don't require looking away from the road
-- **Accessibility**: Alternative input methods for users with mobility challenges
-- **Gaming & Entertainment**: Immersive, controller-free experiences
-
-### Dataset Overview
-
-The system was trained on **20,000 infrared images** captured from a Leap Motion sensor, representing 10 distinct hand gestures performed by 10 different individuals.
-
-![Dataset Distribution](charts/data_distribution.png)
-
-**Key Observations:**
-- **Perfect Balance**: Each gesture class contains exactly 2,000 images, eliminating bias
-- **Diverse User Base**: 10 different subjects ensure the model generalizes across hand sizes and shapes
-- **Consistent Distribution**: Equal representation across all subjects reduces demographic bias
-
-**Business Implication**: The balanced dataset ensures fair performance across all users, critical for inclusive product design and regulatory compliance.
+**What this means:**
+- Dealers and buyers have the widest selection and strongest price competition
+  in the BMW and Toyota segments — negotiating power sits firmly with buyers.
+- Niche brands (Volvo, Subaru, Mercedes-Benz) offer far fewer options, which
+  can drive premium pricing and faster turnover for sellers in those segments.
+- Any platform or dealer strategy targeting volume should lead with BMW and Toyota
+  inventory, while niche brands can be positioned as premium, low-competition offerings.
 
 ---
 
-## 2. The 10 Recognized Gestures
+## 2. Pricing by Brand — Where the Money Is
 
-Our system identifies the following hand gestures with near-perfect accuracy:
+![Average Price by Brand](charts/02_avg_price_brand.png)
+![Price Range by Brand](charts/08_brand_price_range.png)
 
-![Sample Gestures](charts/sample_gestures.png)
+| Brand | Avg Price (GEL) | Notes |
+|---|---|---|
+| BMW | 79,358 | Widest price spread; entry-level and premium coexist |
+| Volvo | 75,600 | Consistent premium positioning |
+| Mercedes-Benz | 64,755 | Tight range — mostly one model tier |
+| Subaru | 57,629 | Mid-premium, narrow spread |
+| Kia | 49,265 | Consistent mid-market |
+| Toyota | 35,509 | Broadest volume, entry-to-mid pricing |
+| Hyundai | 31,020 | Most affordable brand in market |
 
-These gestures were selected to represent a comprehensive vocabulary for human-computer interaction, enabling intuitive control schemes for various applications.
-
----
-
-## 3. Model Performance: Production-Ready Results
-
-### Overall System Performance
-
-| Metric | Score | What This Means |
-|--------|-------|-----------------|
-| **Accuracy** | 99.97% | 2,999 correct predictions out of 3,000 |
-| **Precision** | 99.97% | When the system predicts a gesture, it's correct 99.97% of the time |
-| **Recall** | 99.97% | The system successfully identifies 99.97% of all gestures |
-| **F1-Score** | 99.97% | Balanced performance across all metrics |
-
-### Training Efficiency
-
-![Training History](charts/training_history.png)
-
-**Critical Insights:**
-
-1. **Rapid Learning**: The model achieved 99%+ accuracy within the first 6 training iterations
-2. **Stable Performance**: Validation accuracy plateaued at 100%, indicating robust learning without overfitting
-3. **Efficient Resource Use**: Only 16 training iterations were needed, minimizing computational costs
-4. **Production Readiness**: The model's performance stabilized early, indicating it's ready for deployment
-
-**Business Impact**: Fast training times mean rapid iteration and deployment cycles, reducing time-to-market for new features or gesture sets.
+**What this means:**
+- **BMW carries the highest average price AND the highest volume** — making it
+  the market's most commercially significant brand by total transaction value.
+- **Toyota is the accessible volume leader** — its lower average price combined
+  with high listing count suggests it is the primary entry point for buyers
+  entering the market.
+- **Hyundai and Toyota** serve price-sensitive buyers; a dealer concentrating on
+  these two brands serves the broadest possible demand base.
 
 ---
 
-## 4. Per-Gesture Performance Analysis
+## 3. Fleet Age — What Years Are Available
 
-![Per-Class Accuracy](charts/per_class_accuracy.png)
+![Listings by Year](charts/03_listings_by_year.png)
 
-### Performance Breakdown by Gesture
+**2021-model vehicles account for 28 % of all listings** (3,304 units) — by far
+the single largest cohort. The next largest groups are 2017 (1,410 units) and
+2024 (1,423 units). Very recent models (2023–2025) and older models (pre-2013)
+are relatively scarce.
 
-| Gesture | Accuracy | Status |
-|---------|----------|--------|
-| **Down** | 100% | ✅ Perfect |
-| **Fist** | 100% | ✅ Perfect |
-| **Fist Moved** | 100% | ✅ Perfect |
-| **Index** | 100% | ✅ Perfect |
-| **L** | 100% | ✅ Perfect |
-| **OK** | 100% | ✅ Perfect |
-| **Palm** | 100% | ✅ Perfect |
-| **Palm Moved** | 100% | ✅ Perfect |
-| **Thumb** | 100% | ✅ Perfect |
-| **C** | 99.67% | ⚠️ Near-Perfect (1 error) |
-
-**Key Observations:**
-
-- **9 of 10 gestures**: Achieved flawless 100% accuracy
-- **C Gesture**: Single point of weakness with 99.67% accuracy (1 misclassification out of 300 tests)
-- **Consistency**: No systematic failures detected across gesture types
-
-**Risk Assessment**: The "C" gesture's single error represents minimal risk. In a deployment scenario, this translates to approximately 1 error per 300 gestures—an acceptable rate for most applications.
+**What this means:**
+- The 2021 cohort represents cars that are 3–4 years old — old enough to have
+  shed initial depreciation, yet modern enough to carry desirable features.
+  This is the market's "sweet spot" for volume deals.
+- The spike in 2024 listings signals that new-model imports are arriving in
+  meaningful quantities, presenting an opportunity for premium positioning.
+- Cars from 2013–2014 still represent a sizeable affordable segment for
+  buyers with tight budgets.
 
 ---
 
-## 5. Error Analysis: Understanding the 1 Mistake
+## 4. Depreciation Curve — How Age Affects Price
 
-![Confusion Matrix](charts/confusion_matrix.png)
+![Price by Year](charts/04_price_by_year.png)
 
-### Where Did the System Make Its Only Error?
+Price follows a clear depreciation arc from older models to 2019, then jumps
+sharply for 2020–2023 vehicles before moderating again for 2024. The
+**2020–2023 range commands prices 2–3× higher than pre-2018 stock**.
 
-The confusion matrix above shows predictions versus actual gestures. The darker the cell, the more predictions fell into that category.
-
-**Finding**: The single misclassification occurred when a **"C" gesture was incorrectly predicted as "Palm Moved"**.
-
-### Normalized Performance View
-
-![Normalized Confusion Matrix](charts/confusion_matrix_normalized.png)
-
-This percentage view confirms that all gestures except "C" maintain 100% accuracy, with the "C" gesture at 99.67%.
-
-**Strategic Insight**: If the "C" gesture is mission-critical for a specific application, additional training data or gesture refinement could eliminate this edge case. However, for most use cases, this performance level exceeds industry standards.
+**What this means:**
+- Buyers seeking the best value-per-GEL should focus on 2017–2019 vehicles
+  (moderate age, still well-equipped, meaningful price discount vs. 2021+).
+- Sellers holding 2021–2023 inventory are in the strongest pricing position
+  in the current market.
+- The pronounced price gap between pre-2020 and post-2020 vehicles creates
+  two distinct buyer segments that should be marketed and priced separately.
 
 ---
 
-## 6. Real-World Prediction Examples
+## 5. Geographic Concentration — The Rustavi Effect
 
-![Sample Predictions](charts/sample_predictions.png)
+![City Inventory](charts/05_city_inventory.png)
 
-**What You're Looking At**: 20 random test images showing the system's predictions alongside the true gestures.
-- **Green titles**: Correct predictions
-- **Red titles**: Incorrect predictions
+**Rustavi holds 64 % of all listings (7,554 units)**, dwarfing Tbilisi (32 %)
+and Batumi (4 %). This is largely driven by Autopapa's own dealer lot in Rustavi.
 
-**Observation**: The overwhelming presence of green titles visually confirms the model's exceptional reliability.
-
-**Confidence Levels**: Most predictions show confidence scores above 99%, indicating the model is not just accurate but also highly certain of its decisions—a critical factor for user trust in production systems.
-
----
-
-## 7. Business Implications & Recommendations
-
-### ✅ Strengths
-
-1. **Production-Ready Accuracy**: 99.97% exceeds typical industry benchmarks for gesture recognition (95-98%)
-2. **Balanced Performance**: No gesture is systematically underperforming
-3. **Fast Training**: Low computational requirements enable cost-effective iterations
-4. **High Confidence**: Predictions come with strong certainty, reducing false positives
-
-### ⚠️ Considerations
-
-1. **Single-Environment Testing**: All data collected from Leap Motion sensors in controlled conditions
-2. **Limited Diversity**: 10 subjects may not capture full population variability (age, hand size, skin conditions)
-3. **Minor C-Gesture Weakness**: One misclassification suggests potential for improvement
-
-### 📊 Recommended Actions
-
-#### Immediate (0-3 months):
-- **Deploy to pilot program** with real users in controlled environment
-- **Monitor C-gesture performance** specifically in production
-- **Collect edge-case examples** for continuous learning
-
-#### Short-term (3-6 months):
-- **Expand dataset** to include more diverse users (age, ethnicity, hand sizes)
-- **Test in varying lighting conditions** to ensure infrared sensor reliability
-- **Benchmark against competitor systems** to validate market positioning
-
-#### Long-term (6-12 months):
-- **Add new gestures** to expand interaction vocabulary
-- **Optimize for edge deployment** (smartphones, embedded devices)
-- **Develop gesture customization** allowing users to train personalized gestures
+**What this means:**
+- The market is not evenly distributed — a buyer outside Tbilisi or Rustavi
+  has very limited local choice and will likely need to travel.
+- For a platform or marketplace, **Tbilisi represents the largest underserved
+  geographic opportunity**: high population, only 32 % of current supply.
+- Dealers in Batumi or other cities face almost no local competition from
+  this platform's inventory, making regional expansion a low-risk move.
 
 ---
 
-## 8. Deployment Readiness Assessment
+## 6. Vehicle Type — Sedans vs. SUVs
 
-| Criterion | Status | Evidence |
-|-----------|--------|----------|
-| **Accuracy** | ✅ Ready | 99.97% exceeds 95% production threshold |
-| **Reliability** | ✅ Ready | Consistent performance across all users |
-| **Speed** | ✅ Ready | Predictions require minimal computation |
-| **Scalability** | ⚠️ Needs Testing | Performance on resource-constrained devices TBD |
-| **Robustness** | ⚠️ Needs Validation | Real-world environmental conditions untested |
+![Body Type](charts/06_body_type.png)
 
-### Risk Mitigation Strategy
+**Sedans lead at 54 % of supply (6,343 units), followed by SUVs / Crossovers
+at 38 % (4,521 units).** Minivans and hatchbacks together account for only 8 %.
 
-**Low Risk**: Deploy in controlled environments (kiosks, medical devices)
-**Medium Risk**: Deploy with fallback options (touchscreens alongside gesture control)
-**High Risk**: Defer deployment in safety-critical applications until additional validation
+**What this means:**
+- Sedan buyers have the largest selection and most competitive pricing.
+- SUV / crossover inventory is substantial but trails sedans — a buyer wanting
+  an SUV has meaningful choice without the hyper-competition of the sedan market.
+- Minivans and hatchbacks are scarce; a specialist dealer in these segments
+  could command a price premium with limited direct competition.
 
 ---
 
-## 9. Competitive Advantage
+## 7. Mileage — Condition Tiers and Their Prices
 
-Our system's performance positions it favorably against industry standards:
+![Mileage Brackets](charts/07_mileage_brackets.png)
 
-| Metric | Industry Average | Our System | Advantage |
-|--------|------------------|------------|-----------|
-| Gesture Recognition Accuracy | 95-97% | 99.97% | +2.97-4.97% |
-| Training Data Required | 50,000-100,000 images | 20,000 images | 60-80% reduction |
-| Training Time | 24-48 hours | <4 hours | 83-92% faster |
-| Error Rate | 3-5% | 0.03% | 99-167x improvement |
+| Mileage Tier | Listings | Avg Price |
+|---|---|---|
+| 0 – 30,000 km | ~1,400 | Highest |
+| 30 – 60,000 km | ~1,900 | High |
+| 60 – 100,000 km | ~3,000 | Mid |
+| 100 – 150,000 km | ~2,800 | Mid-Low |
+| 150 – 200,000 km | ~1,700 | Low |
+| 200,000+ km | ~900 | Lowest |
 
-**Market Positioning**: This performance level enables premium pricing strategies and positions the technology as best-in-class for quality-sensitive applications.
+**The 60–100k km bracket holds the most listings** and represents the market's
+primary volume tier — vehicles that have seen meaningful use but still have
+significant life remaining.
 
----
-
-## 10. Technical Specifications (Non-Technical Summary)
-
-### System Capabilities
-
-- **Input**: Infrared camera images (128×128 pixels)
-- **Output**: Gesture identification + confidence score
-- **Response Time**: Near-instantaneous (<50ms)
-- **Supported Gestures**: 10 distinct hand poses
-- **Accuracy**: 99.97% on unseen data
-
-### Model Characteristics
-
-- **Architecture**: Deep learning neural network
-- **Parameters**: 8.7 million learned patterns
-- **Training Data**: 20,000 labeled images
-- **Validation Method**: Tested on 3,000 completely new images
+**What this means:**
+- The sharpest price drop occurs between the 0–30k and 100k+ brackets —
+  buyers who can tolerate slightly higher mileage unlock substantial savings.
+- High-mileage stock (150k+) is present but limited — creating a potential
+  niche for buyers seeking the lowest entry price.
+- Dealers should stock the 60–100k km range to align with peak buyer demand.
 
 ---
 
-## 11. Financial & Resource Considerations
+## 8. Fuel Type — Petrol Dominates, Hybrid Growing
 
-### Development Efficiency Achieved
+![Fuel by Brand](charts/09_fuel_by_brand.png)
 
-- **Training completed in 16 iterations** (vs. typical 50-100)
-- **Computational cost**: Estimated 70-85% below industry standard
-- **Data collection cost**: Minimal (20K images vs. typical 50-100K requirement)
+**Petrol vehicles account for the overwhelming majority of listings across all
+brands.** Hybrid inventory is present but concentrated in specific brands (notably
+Volvo and select Toyota models). Diesel is a small minority.
 
-### Projected Deployment Costs
-
-**Per-Unit Cost Factors**:
-- Infrared sensor: $30-50 (Leap Motion or equivalent)
-- Processing requirements: Standard CPU sufficient (no GPU needed for inference)
-- Software licensing: Custom model, no third-party dependencies
-
-**Operating Costs**:
-- Cloud inference: ~$0.001 per 1,000 gestures
-- Edge deployment: One-time hardware cost, zero recurring costs
+**What this means:**
+- Petrol infrastructure and buyer familiarity make it the safe default for
+  dealer inventory.
+- Hybrid listings command above-average prices and appeal to a cost-conscious,
+  environmentally aware buyer segment — a growing niche worth monitoring.
+- Diesel demand appears limited in this market; stocking diesel vehicles carries
+  higher liquidation risk.
 
 ---
 
-## 12. Next Steps & Decision Points
+## 9. Customs Clearance — A Market-Wide Risk Factor
 
-### For Product Teams:
-1. Identify target application (healthcare, automotive, smart home, etc.)
-2. Define acceptable error thresholds for specific use case
-3. Plan pilot deployment with success metrics
+![Customs by Brand](charts/10_customs_by_brand.png)
 
-### For Engineering Teams:
-1. Optimize model for target deployment platform (cloud, edge, mobile)
-2. Develop real-time performance monitoring dashboard
-3. Create user feedback loop for continuous improvement
+**Over 86 % of all listed vehicles (≈ 10,166 units) have not yet cleared
+Georgian customs.** This is consistent across virtually every brand.
 
-### For Executive Leadership:
-1. Evaluate market opportunity vs. development investment
-2. Assess intellectual property protection strategy
-3. Determine go-to-market timeline and resource allocation
+**What this means:**
+- The true cost of purchase is higher than the listed price for most buyers —
+  customs duties must be factored into any buying decision.
+- Dealers or platforms that offer **customs-cleared inventory** hold a meaningful
+  competitive advantage: buyers can purchase and drive without bureaucratic delay.
+- For a marketplace platform, prominently surfacing customs-cleared listings
+  could be a significant conversion driver.
 
 ---
 
-## Conclusion
+## Key Actions for Stakeholders
 
-The hand gesture recognition system demonstrates **exceptional performance** suitable for immediate deployment in controlled environments and pilot programs. With 99.97% accuracy and balanced performance across all gesture types, the technology is positioned to deliver tangible value in touchless interaction applications.
-
-**The path forward is clear**: Deploy strategically, monitor rigorously, and iterate based on real-world feedback to unlock the full potential of gesture-based human-computer interaction.
-
----
-
-## Appendix: Data Quality Metrics
-
-### Dataset Validation Results
-
-- ✅ **Zero missing values** across all data fields
-- ✅ **Zero duplicate images** detected
-- ✅ **Perfect class balance** (2,000 images per gesture)
-- ✅ **100% file integrity** (all images successfully loaded)
-- ✅ **Balanced subject distribution** (2,000 images per subject)
-
-### Model Training Metrics
-
-- **Total training images**: 14,000 (70%)
-- **Validation images**: 3,000 (15%)
-- **Test images**: 3,000 (15%)
-- **Training epochs**: 16
-- **Best validation accuracy**: 100%
-- **Final test accuracy**: 99.97%
-
----
-
-*This analysis was generated on January 3, 2026*
-*For technical implementation details, please refer to `scripts/hand_gesture_recognition.py`*
+| Stakeholder | Recommended Action |
+|---|---|
+| **Buyer** | Focus on 2017–2019 Toyota or Hyundai, 60–100k km range for best value |
+| **Dealer / Importer** | Lead inventory with 2021+ BMW and Toyota; offer customs-cleared stock as premium tier |
+| **Platform / Marketplace** | Expand Tbilisi presence; surface customs-cleared listings prominently |
+| **Investor** | Hybrid and SUV segments show strongest price resilience; minivan niche is underserved |

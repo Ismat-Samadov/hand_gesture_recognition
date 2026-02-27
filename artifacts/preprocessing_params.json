@@ -1,9 +1,0 @@
-{
-    "target_size": [
-        128,
-        128
-    ],
-    "normalization": "divide_by_255",
-    "color_mode": "grayscale",
-    "interpolation": "area"
-}
